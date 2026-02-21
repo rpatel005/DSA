@@ -41,8 +41,8 @@ def find_circular_dependency(templates: List[Template]) -> Optional[List[str]]:
             if isCycle:
                 cycle.append(cycle_path)
            
-    if len(cycle):
-        return cycle
+    if len(cycle) > 1: return cycle
+    elif len(cycle) == 1: return cycle[0]
     else: return None
 
 
